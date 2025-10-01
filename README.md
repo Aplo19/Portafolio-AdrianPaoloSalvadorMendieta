@@ -1,24 +1,24 @@
+# Portafolio (React & Tailwind)
 
-# Gestión de Reservas - SPA (Trabajo Final POO)
-
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![NetBeans](https://img.shields.io/badge/NetBeansIDE-1B6AC6?style=for-the-badge&logo=apache-netbeans-ide&logoColor=white)
-![Version](https://img.shields.io/badge/Estado-Finalizado-success?style=for-the-badge)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Version](https://img.shields.io/badge/Estado-Producci%C3%B3n-success?style=for-the-badge)
 
 ---
 
 ## 📚 Descripción General
 
-Sistema de gestión de escritorio para un centro SPA, diseñado como proyecto final de **Programación Orientada a Objetos (POO)**. Desarrollado íntegramente en **Java** utilizando **NetBeans**, permite el **CRUD** de clientes, servicios y reservas, aplicando rigurosamente los conceptos de la POO.
+Portafolio profesional y responsivo desarrollado en **React** y **TailwindCSS**. Este proyecto está diseñado con una arquitectura modular y limpia, demostrando mi dominio en el desarrollo front-end moderno, la componentización y el diseño adaptable.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-* **Lenguaje Principal:** Java
-* **IDE:** NetBeans (Entorno de Desarrollo)
-* **Paradigma:** Programación Orientada a Objetos (POO)
-* **Interfaz:** Java Swing (GUI de escritorio)
+* **Lenguaje Principal:** JavaScript
+* **Framework/Librería:** React
+* **Estilos:** TailwindCSS
+* **Animaciones:** AOS (Animate On Scroll)
+* **Metodología:** Component-Based Architecture
 
 ---
 
@@ -26,17 +26,17 @@ Sistema de gestión de escritorio para un centro SPA, diseñado como proyecto fi
 
 | Área de Dominio | Logro Destacado |
 | :--- | :--- |
-| **POO y Arquitectura** | Implementación rigurosa de **Herencia, Polimorfismo y Encapsulamiento** para un código modular, mantenible y de bajo acoplamiento. |
-| **Control de Flujo** | Desarrollo de una interfaz de usuario (**GUI**) con validaciones de entrada para facilitar el flujo de trabajo administrativo. |
-| **Gestión de Datos** | Manejo de la persistencia de datos (ej. mediante ficheros o bases de datos sencillas) para almacenar información de reservas. |
+| **Componentización** | Arquitectura basada en **componentes funcionales (JSX)** para maximizar la reutilización, la legibilidad y la escalabilidad del código. |
+| **Diseño Responsivo** | Implementación de un diseño *mobile-first* utilizando **TailwindCSS**, asegurando la perfecta visualización en cualquier dispositivo. |
+| **UX/UI** | Integración de la librería **AOS** para mejorar la experiencia de usuario con transiciones y animaciones suaves al hacer *scroll*. |
 
 ---
 
 ## 🚧 Desafíos Técnicos Superados
 
-1.  **Control de Errores de Entrada:**
-    * **El Problema:** Prevenir que las entradas de texto del usuario en los campos de la GUI causaran errores lógicos o *crashes* en el sistema.
-    * **La Solución:** Uso de estructuras de manejo de excepciones (`try-catch`) y bucles de validación para asegurar que solo se ingresaran datos con el formato esperado (ej. números en campos de teléfono/precio).
+1.  **Optimización de Rendimiento (AOS):**
+    * **El Problema:** Asegurar que las animaciones de AOS se inicializaran correctamente con **React Hooks** y no causaran *re-renders* innecesarios en el componente principal.
+    * **La Solución:** Uso del *hook* `useEffect` para inicializar la librería **solo una vez** al montar el componente, garantizando un rendimiento óptimo.
 
 ---
 
