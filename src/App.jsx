@@ -38,10 +38,11 @@ export default function App() {
         >
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-4">Adrian Paolo Salvador Mendieta</h1>
           <p className="text-lg text-gray-300 max-w-2xl mb-6">
-            Estudiante de Ingeniería de Software en la <span className="text-blue-400 font-semibold">UTP</span>.
-            Desarrollo aplicaciones web con enfoque en usabilidad, escalabilidad y buenas prácticas.
-          </p>
-
+               Estudiante de Ingeniería de Software en la{" "}
+               <span className="text-blue-400 font-semibold">UTP</span>.<br />
+                Desarrollador <strong>Full Stack</strong> enfocado en la creación de
+                 aplicaciones web modernas, seguras y escalables 
+                </p>
           <div className="flex gap-4">
             <a
               href="#projects"
@@ -65,23 +66,33 @@ export default function App() {
 
         <Section id="about" title="Sobre mí" aos="fade-right">
           <p className="text-gray-300 mb-4">
-            Soy estudiante de Ingeniería de Software en la <strong>Universidad Tecnológica del Perú (UTP)</strong>.
-            Tengo experiencia en desarrollo web, gestión de bases de datos y soporte técnico. Me destaco por
-            resolver problemas con enfoque práctico y por aprender nuevas tecnologías de forma autónoma.
+               Soy estudiante de Ingeniería de Software en la{" "}
+                <strong>Universidad Tecnológica del Perú (UTP)</strong>,
+                 con enfoque en desarrollo web <strong>Full Stack</strong>.
+                 Desarrollo aplicaciones web utilizando
+                <strong> HTML, CSS, JavaScript, React, PHP y Laravel</strong>,
+                 implementando funcionalidades como
+                 <strong> autenticación de usuarios, CRUD, validaciones</strong> y
+                 gestión de bases de datos <strong>MySQL</strong>.
+                Me caracterizo por un enfoque práctico para resolver problemas
+                y por entregar soluciones funcionales y de calidad.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-6 mt-6">
             <div className="bg-gray-800 p-6 rounded-lg shadow">
               <h3 className="font-semibold mb-2">Experiencia laboral</h3>
               <p className="text-gray-400">
-                Asistente Técnico - J&M Fotocopiadoras (2022). Atención al cliente, administración de la página web,
-                soporte técnico básico y manejo de caja. (Ver CV para más detalles).
-              </p>
+             <strong>Asistente Técnico – J&M Fotocopiadoras</strong> (2022 – 2025).<br />
+             Atención al cliente, gestión y mantenimiento del sitio web,
+             soporte técnico básico, resolución de incidencias y manejo de caja.
+             <span className="text-gray-500"> (Ver CV para más detalles)</span> </p>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow">
               <h3 className="font-semibold mb-2">Formación</h3>
               <p className="text-gray-400">
-                Ingeniería de Software — UTP (Octavo ciclo). Cursos y certificaciones en redes y ciberseguridad por Cisco.
+                 <strong>Ingeniería de Software</strong> — Universidad Tecnológica del Perú (UTP).<br />
+                  9.º ciclo. Formación en desarrollo web, bases de datos,
+                  redes y ciberseguridad con certificaciones Cisco.
               </p>
             </div>
           </div>

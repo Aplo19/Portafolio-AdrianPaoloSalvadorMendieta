@@ -44,6 +44,9 @@ export const skills = [
   "Git/GitHub",
   "Java",
   "C++",
+  "Laravel",
+  "PHP",
+  "Python",
 ];
 
 export const certifications = [
@@ -60,5 +63,12 @@ export const certifications = [
         issuer: "Curso Cisco Networking Academy.",
         date: "Aug 20, 2025",
         pdf: "/certificado-cisco.pdf"
-    }
+    },
+      {
+    id: 103,
+    title: "Gestión de Amenazas Cibernéticas",
+    issuer: "Cisco Networking Academy",
+    date: "Noviembre 2025",
+    pdf: "/gestion-amenazas-ciberneticas.pdf",
+      }
 ]
