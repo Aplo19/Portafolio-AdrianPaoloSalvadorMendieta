@@ -60,8 +60,7 @@ export default function App() {
           </div>
 
           <p className="text-xs text-gray-500 mt-6 max-w-xl">
-            Disponible para prácticas profesionales y puestos junior. CV y certificaciones disponibles para descarga.
-          </p>
+Abierto a oportunidades laborales. CV y certificaciones disponibles para descarga.          </p>
         </section>
 
         <Section id="about" title="Sobre mí" aos="fade-right">
@@ -78,15 +77,45 @@ export default function App() {
                 y por entregar soluciones funcionales y de calidad.
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-6 mt-6">
-            <div className="bg-gray-800 p-6 rounded-lg shadow">
-              <h3 className="font-semibold mb-2">Experiencia laboral</h3>
-              <p className="text-gray-400">
-             <strong>Asistente Técnico – J&M Fotocopiadoras</strong> (2022 – 2025).<br />
-             Atención al cliente, gestión y mantenimiento del sitio web,
-             soporte técnico básico, resolución de incidencias y manejo de caja.
-             <span className="text-gray-500"> (Ver CV para más detalles)</span> </p>
-            </div>
+          <div className="grid gap-6 mt-6">
+
+           <div className="bg-gray-800 p-6 rounded-lg shadow">
+  <h3 className="font-semibold mb-2">Experiencia laboral</h3>
+  <p className="text-gray-400">
+    <strong>Desarrollador Web / Líder de Área – NEONHOUSELED SAC</strong><br />
+    <span className="text-gray-500">Octubre 2025 – Enero 2026</span><br /><br />
+
+Realicé funciones como desarrollador web en NEON HOUSE LED SAC, desempeñándome
+también como líder de área. Fui responsable del análisis y planificación de la
+implementación de mockups, transformándolos en interfaces web funcionales y
+responsivas utilizando <strong>HTML, JSX/TSX, Tailwind CSS, Laravel (Blade) y Next.js</strong>.
+Desarrollé la lógica con{" "}
+<strong>JavaScript y TypeScript</strong>, aplicando estilos y animaciones acordes a
+la identidad visual de la empresa mediante CSS, Tailwind y Framer Motion.
+
+    <br /><br />
+    Asimismo, participé en el desarrollo backend implementando endpoints y APIs
+    con <strong>Laravel y PHP</strong>, gestionando bases de datos <strong>MySQL</strong>{" "}y optimizando consultas SQL. Realicé pruebas funcionales, corrección de errores
+    y mejoras de rendimiento, incluyendo optimización de recursos y buenas prácticas
+    en React como <em>useMemo</em> y <em>useCallback</em>. También implementé mejoras
+    básicas de SEO, colaboré en el despliegue de aplicaciones web y en la
+    configuración de entornos de producción, además de mantener actualizados los
+    contenidos de las plataformas digitales.
+
+    <br /><br />
+    Como líder del área, coordiné al equipo técnico, asigné tareas, realicé
+    seguimiento del progreso, elaboré informes y participé activamente en reuniones
+    técnicas, promoviendo la organización, la comunicación efectiva y el trabajo
+    colaborativo.
+
+    <br /><br />
+    <strong>Asistente Técnico – J&M Fotocopiadoras</strong><br />
+    <span className="text-gray-500">2022 – 2025</span><br />
+    Brindé atención directa al cliente, soporte técnico básico, mantenimiento y
+    gestión del sitio web, resolución de incidencias y manejo de caja, asegurando un
+    servicio eficiente y de calidad.
+  </p>
+</div>
             <div className="bg-gray-800 p-6 rounded-lg shadow">
               <h3 className="font-semibold mb-2">Formación</h3>
               <p className="text-gray-400">
@@ -129,7 +158,7 @@ export default function App() {
 
 
         <Section id="contact" title="Contacto" aos="zoom-in" bgColor="bg-gray-800">
-          <p className="text-gray-300 mb-6 text-center">¿Te interesa mi perfil? Estoy disponible para prácticas y posiciones junior.</p>
+          <p className="text-gray-300 mb-6 text-center">¿Te interesa mi perfil? Me encuentro disponible para oportunidades laborales.</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="mailto:adriansalvadormendieta@gmail.com" className="px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition">📧 Enviar email</a>
