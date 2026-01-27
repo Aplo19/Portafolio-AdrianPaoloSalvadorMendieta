@@ -1,4 +1,3 @@
-// src/components/ProjectCard.jsx
 import React from 'react';
 
 export default function ProjectCard({ project }) {

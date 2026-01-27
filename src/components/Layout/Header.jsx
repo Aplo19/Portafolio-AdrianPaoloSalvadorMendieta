@@ -1,4 +1,3 @@
-// src/components/Layout/Header.jsx
 import React from 'react';
 
 export default function Header() {
@@ -23,6 +22,15 @@ export default function Header() {
               className="px-3 py-1 bg-blue-500 text-sm rounded-md hover:bg-blue-600 transition"
             >
               Descargar CV
+            </a>
+          </li>
+          <li>
+                                    <a
+              href="/carta_recomendacion_Adrian_Paolo_Salvador_Mendieta.pdf"
+              download
+              className="px-3 py-1 bg-blue-500 text-sm rounded-md hover:bg-blue-600 transition"
+            >
+              Descargar carta de recomendacion
             </a>
           </li>
         </ul>

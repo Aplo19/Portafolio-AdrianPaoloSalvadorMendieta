@@ -36,18 +36,65 @@ export const projects = [
 ];
 
 export const skills = [
-  "JavaScript",
-  "React",
-  "Node.js",
-  "TailwindCSS",
-  "MySQL",
-  "Git/GitHub",
-  "Java",
-  "C++",
-  "Laravel",
-  "PHP",
-  "Python",
+  {
+    category: "Frontend",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Vue.js",
+      "Tailwind CSS",
+      "HTML5",
+      "CSS3",
+      "Diseño responsive / Mobile-first",
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      "Node.js",
+      "PHP",
+      "Laravel",
+      "Java",
+      "Python",
+      "C++",
+      "Desarrollo de APIs",
+    ],
+  },
+  {
+    category: "Base de Datos",
+    items: [
+      "MySQL",
+      "SQL",
+    ],
+  },
+  {
+    category: "Desarrollo Web",
+    items: [
+      "APIs REST",
+      "Arquitectura MVC",
+      "Programación Orientada a Objetos (POO)",
+      "Consumo e integración de APIs",
+      "Autenticación y control de acceso",
+      "Validación de formularios",
+      "Manejo de errores",
+    "Optimización de rendimiento web",
+    "Buenas prácticas de SEO técnico y accesibilidad",
+    ],
+  },
+  {
+    category: "Herramientas",
+    items: [
+      "Git",
+      "GitHub",
+      "Postman",
+      "VS Code",
+      "XAMPP",
+      "Vite",
+    ],
+  },
 ];
+
 
 export const certifications = [
     {

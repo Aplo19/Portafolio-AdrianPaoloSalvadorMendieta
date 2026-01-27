@@ -1,4 +1,3 @@
-// src/components/CertCard.jsx
 import React from 'react';
 
 export default function CertCard({ cert }) {

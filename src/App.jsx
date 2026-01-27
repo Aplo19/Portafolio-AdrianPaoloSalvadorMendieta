@@ -57,6 +57,13 @@ export default function App() {
             >
               Descargar CV
             </a>
+                        <a
+              href="/carta_recomendacion_Adrian_Paolo_Salvador_Mendieta.pdf"
+              download
+              className="px-6 py-3 border border-gray-600 rounded-lg hover:bg-gray-800 transition"
+            >
+              Descargar Carta de Recomendacion
+            </a>
           </div>
 
           <p className="text-xs text-gray-500 mt-6 max-w-xl">
@@ -126,17 +133,33 @@ la identidad visual de la empresa mediante CSS, Tailwind y Framer Motion.
             </div>
           </div>
         </Section>
+<Section id="skills" title="Habilidades" aos="zoom-in" bgColor="bg-gray-800">
+  <div className="max-w-5xl mx-auto space-y-8">
 
-        <Section id="skills" title="Habilidades" aos="zoom-in" bgColor="bg-gray-800">
-          <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-            {skills.map((s, index) => (
-              <div key={index} className="bg-gray-900 p-4 rounded-lg border border-gray-700">
-                <div className="font-semibold">{s}</div>
+    {skills.map((group, index) => (
+      <div key={index}>
+        <h3 className="mb-4 text-center font-bold text-xl text-white">
+          {group.category}
+        </h3>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+          {group.items.map((skill, i) => (
+            <div
+              key={i}
+              className="bg-gray-900 p-4 rounded-lg border border-gray-700
+                         hover:border-indigo-500 hover:scale-105 transition"
+            >
+              <div className="font-semibold text-gray-200">
+                {skill}
               </div>
-            ))}
-          </div>
-        </Section>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
 
+  </div>
+</Section>
         <Section id="projects" title="Proyectos destacados" aos="fade-up">
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((p) => (
