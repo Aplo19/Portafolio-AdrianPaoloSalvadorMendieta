@@ -33,6 +33,14 @@ export const projects = [
     link: "https://github.com/Aplo19/Inspiraciencia",
     tags: ["Web", "Comunidad", "PDF Management", "Database"],
   },
+{
+  id: 5,
+  title: "Banco Platform (BFF + Microservicios)",
+  desc:
+    "Arquitectura backend con intercambio de datos entre microservicios de clientes y productos a través de un BFF, seguridad OAuth2/JWT, trazabilidad con X-Trace-Id y despliegue con Docker.",
+  link: "https://github.com/Aplo19/banking-bff-microservices-oauth2.git",
+  tags: ["Microservices", "BFF", "OAuth2/JWT", "Spring Boot", "Docker"],
+},
 ];
 
 export const skills = [
@@ -58,6 +66,11 @@ export const skills = [
       "Java",
       "Python",
       "C++",
+      "Spring Boot",
+      "Spring Security",
+      "OAuth2 / JWT",
+      "Arquitectura de microservicios",
+      "BFF (Backend for Frontend)",
       "Desarrollo de APIs",
     ],
   },
@@ -66,6 +79,20 @@ export const skills = [
     items: [
       "MySQL",
       "SQL",
+      "Diseño y modelado relacional",
+      "JPA / Hibernate",
+    ],
+  },
+  {
+    category: "DevOps / Herramientas",
+    items: [
+      "Docker",
+      "Docker Compose",
+      "Maven",
+      "Git / GitHub",
+      "Swagger / OpenAPI",
+      "Postman",
+      "Logging y trazabilidad (X-Trace-Id)",
     ],
   },
   {
@@ -78,22 +105,12 @@ export const skills = [
       "Autenticación y control de acceso",
       "Validación de formularios",
       "Manejo de errores",
-    "Optimización de rendimiento web",
-    "Buenas prácticas de SEO técnico y accesibilidad",
-    ],
-  },
-  {
-    category: "Herramientas",
-    items: [
-      "Git",
-      "GitHub",
-      "Postman",
-      "VS Code",
-      "XAMPP",
-      "Vite",
+      "Optimización de rendimiento web",
+      "Buenas prácticas de SEO técnico y accesibilidad",
     ],
   },
 ];
+
 
 
 export const certifications = [

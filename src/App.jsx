@@ -1,4 +1,4 @@
-// src/App.jsx
+
 
 import { useEffect } from "react";
 import AOS from "aos";
@@ -38,11 +38,10 @@ export default function App() {
         >
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-4">Adrian Paolo Salvador Mendieta</h1>
           <p className="text-lg text-gray-300 max-w-2xl mb-6">
-               Estudiante de Ingeniería de Software en la{" "}
-               <span className="text-blue-400 font-semibold">UTP</span>.<br />
-                Desarrollador <strong>Full Stack</strong> enfocado en la creación de
-                 aplicaciones web modernas, seguras y escalables 
-                </p>
+  Estudiante de Ingeniería de Software en la{" "}
+  <span className="text-blue-400 font-semibold">UTP</span>.<br />
+  Desarrollador <strong>Full Stack</strong> enfocado en crear aplicaciones web modernas, seguras y escalables.
+</p>
           <div className="flex gap-4">
             <a
               href="#projects"
@@ -72,18 +71,21 @@ Abierto a oportunidades laborales. CV y certificaciones disponibles para descarg
 
         <Section id="about" title="Sobre mí" aos="fade-right">
           <p className="text-gray-300 mb-4">
-               Soy estudiante de Ingeniería de Software en la{" "}
-                <strong>Universidad Tecnológica del Perú (UTP)</strong>,
-                 con enfoque en desarrollo web <strong>Full Stack</strong>.
-                 Desarrollo aplicaciones web utilizando
-                <strong> HTML, CSS, JavaScript, React, PHP y Laravel</strong>,
-                 implementando funcionalidades como
-                 <strong> autenticación de usuarios, CRUD, validaciones</strong> y
-                 gestión de bases de datos <strong>MySQL</strong>.
-                Me caracterizo por un enfoque práctico para resolver problemas
-                y por entregar soluciones funcionales y de calidad.
-          </p>
+  Soy estudiante de Ingeniería de Software en la{" "}
+  <strong>Universidad Tecnológica del Perú (UTP)</strong>, con enfoque en
+  desarrollo web <strong>Full Stack</strong>. Desarrollo soluciones con{" "}
+  <strong>Java, Spring Boot, JavaScript, React, PHP y Laravel</strong>,
+  construyendo APIs y aplicaciones con <strong>autenticación, CRUD, validaciones</strong>{" "}
+  e integración con bases de datos <strong>MySQL</strong>.
 
+  Además, he desarrollado una arquitectura backend con{" "}
+  <strong>BFF + microservicios</strong>, implementando{" "}
+  <strong>OAuth2/JWT</strong>, intercambio de datos entre servicios,
+  trazabilidad con <strong>X-Trace-Id</strong>, documentación con{" "}
+  <strong>Swagger/OpenAPI</strong> y despliegue con <strong>Docker</strong>.
+  Me enfoco en resolver problemas de forma práctica y en entregar soluciones
+  funcionales, seguras y mantenibles.
+</p>
           <div className="grid gap-6 mt-6">
 
            <div className="bg-gray-800 p-6 rounded-lg shadow">
@@ -118,9 +120,7 @@ la identidad visual de la empresa mediante CSS, Tailwind y Framer Motion.
     <br /><br />
     <strong>Asistente Técnico – J&M Fotocopiadoras</strong><br />
     <span className="text-gray-500">2022 – 2025</span><br />
-    Brindé atención directa al cliente, soporte técnico básico, mantenimiento y
-    gestión del sitio web, resolución de incidencias y manejo de caja, asegurando un
-    servicio eficiente y de calidad.
+    Mantenimiento del sitio web corporativo y soporte técnico básico.
   </p>
 </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow">
@@ -177,6 +177,58 @@ la identidad visual de la empresa mediante CSS, Tailwind y Framer Motion.
             <p className="text-xs text-gray-500 mt-4 text-center max-w-4xl mx-auto">
                 Ver detalles completos en mi CV.
             </p>
+        </Section>
+
+        <Section id="recognitions" title="Reconocimientos" aos="fade-up" bgColor="bg-gray-800">
+          
+          <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+             <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow">
+              <h3 className="text-xl font-semibold text-blue-300">Talento revelación</h3>
+              <p className="text-gray-400 mt-3 min-h-[72px]">
+               Documento oficial emitido por la empresa que reconoce mi desempeño sobresaliente, compromiso constante y capacidad de trabajo en equipo.
+              </p>
+              <a
+                href="/TECHNOLOGY - Adrian Paolo Salvador Mendieta (1).pdf"
+               target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-block px-3 py-1.5 text-sm bg-blue-600 rounded-md hover:bg-blue-700 transition"
+              >
+                Ver PDF
+              </a>
+            </div>
+            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow">
+              <h3 className="text-xl font-semibold text-blue-300">Certificado de reconocimiento</h3>
+              <p className="text-gray-400 mt-3 min-h-[72px]">
+                Reconocimiento por desempeño destacado, responsabilidad y aporte en proyectos de
+                desarrollo web.
+              </p>
+              <a
+                href="/CERTIFICADO DE RECONOCIMIENTO.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-block px-3 py-1.5 text-sm bg-blue-600 rounded-md hover:bg-blue-700 transition"
+              >
+                Ver PDF
+              </a>
+            </div>
+
+            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow">
+              <h3 className="text-xl font-semibold text-blue-300">Carta de recomendacion</h3>
+              <p className="text-gray-400 mt-3 min-h-[72px]">
+                Documento emitido por la empresa que respalda mi desempeño, compromiso y trabajo
+                en equipo.
+              </p>
+              <a
+                href="/carta_recomendacion_Adrian_Paolo_Salvador_Mendieta.pdf"
+               target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-block px-3 py-1.5 text-sm bg-blue-600 rounded-md hover:bg-blue-700 transition"
+              >
+                Ver PDF
+              </a>
+            </div>
+          </div>
+          
         </Section>
 
 
