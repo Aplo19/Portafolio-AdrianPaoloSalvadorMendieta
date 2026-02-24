@@ -111,14 +111,14 @@ export const certifications = [
     id: 101,
     title: "Introducción a la ciberseguridad",
     issuer: "Universidad Tecnológica del Perú - Cisco Networking Academy",
-    date: "30 Aug 2025",
+    date: "30 Agosto 2025",
     pdf: "/certificado-ciberseguridad.pdf",
   },
   {
     id: 102,
     title: "Certificado Cisco",
     issuer: "Cisco Networking Academy",
-    date: "20 Aug 2025",
+    date: "20 Agosto 2025",
     pdf: "/certificado-cisco.pdf",
   },
   {
