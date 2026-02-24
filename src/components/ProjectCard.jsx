@@ -1,33 +1,37 @@
-import React from 'react';
+﻿import React from "react";
+import SpotlightCard from "./SpotlightCard";
 
 export default function ProjectCard({ project }) {
   const { title, desc, link, tags } = project;
-  
+
   return (
-    <article 
-      className="bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-800 hover:border-blue-500 hover:scale-[1.02] transition duration-300" 
-      data-aos="fade-up"
+    <SpotlightCard
+      className="group min-h-[24rem] p-7 sm:min-h-0 sm:p-6"
+      spotlightColor="color-mix(in srgb, var(--brand) 28%, transparent)"
     >
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-        <h3 className="text-xl font-semibold text-blue-300">{title}</h3>
-        
-        <div className="text-xs font-mono text-gray-500 mt-2 sm:mt-0 px-2 py-1 bg-gray-800 rounded">
-            {tags.join(" • ")}
-        </div>
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <h3 className="text-2xl font-bold tracking-tight text-[var(--text)] sm:text-xl">{title}</h3>
+        <span className="rounded-full border border-slate-400/20 bg-[var(--surface-soft)] px-3 py-1 text-sm font-medium text-muted sm:text-xs">
+          {tags.slice(0, 3).join(" · ")}
+        </span>
       </div>
-      
-      <p className="text-gray-400 mt-3 mb-5">{desc}</p>
-      
-      <div className="mt-4 pt-3 border-t border-gray-800">
-        <a 
-          href={link} 
-          target="_blank" 
-          rel="noreferrer" 
-          className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 transition font-medium"
-        >
-          💻 Ver Repositorio (GitHub)
-        </a>
+
+      <p className="text-base leading-relaxed text-muted sm:text-sm">{desc}</p>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-md border border-slate-400/20 bg-[var(--surface-soft)] px-2.5 py-1.5 text-sm text-muted sm:px-2 sm:py-1 sm:text-xs"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
-    </article>
+
+      <a href={link} target="_blank" rel="noreferrer" className="btn-main mt-6 w-full sm:w-auto">
+        Ver repositorio
+      </a>
+    </SpotlightCard>
   );
 }

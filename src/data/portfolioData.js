@@ -1,46 +1,46 @@
-// src/data/portfolioData.js
+﻿// src/data/portfolioData.js
 
 export const projects = [
   {
-    id: 1, 
-    title: "Este Portafolio (React & Tailwind)",
+    id: 1,
+    title: "Este portafolio (React + Tailwind)",
     desc:
-      "Diseño y desarrollo de un portafolio profesional responsivo utilizando React y TailwindCSS para una experiencia moderna y rápida.",
-    link: "https://github.com/Aplo19/Portafolio-AdrianPaoloSalvadorMendieta", 
-    tags: ["React", "TailwindCSS", "AOS", "UX/UI"],
+      "Diseño y desarrollo de un portafolio profesional responsive con React y TailwindCSS, enfocado en rendimiento y claridad visual.",
+    link: "https://github.com/Aplo19/Portafolio-AdrianPaoloSalvadorMendieta",
+    tags: ["React", "TailwindCSS", "AOS", "UI"],
   },
   {
     id: 2,
-    title: "Gestión de Reservas - SPA (Trabajo Final)",
+    title: "Gestión de reservas - SPA",
     desc:
-      "Sistema de gestión de reservas para un SPA desarrollado en NetBeans, implementando principios de Programación Orientada a Objetos (POO) en Java.",
+      "Sistema de gestión de reservas para un SPA desarrollado en Java, aplicando principios de Programación Orientada a Objetos.",
     link: "https://github.com/Aplo19/gestion-reservas-spa-java",
-    tags: ["Java", "NetBeans", "POO", "GUI"],
+    tags: ["Java", "NetBeans", "POO", "Desktop"],
   },
   {
     id: 3,
-    title: "Preguntas Educativas: Historia del Perú",
+    title: "Preguntas educativas: Historia del Perú",
     desc:
-      "Aplicación educativa interactiva construida en Python, diseñada para evaluar y reforzar el conocimiento de los usuarios sobre la Historia del Perú.",
+      "Aplicación educativa interactiva construida en Python para evaluar y reforzar conocimientos sobre historia.",
     link: "https://github.com/Aplo19/Preguntas-Educativas",
-    tags: ["Python", "Educativo", "Scripting"],
+    tags: ["Python", "Educación", "Scripting"],
   },
   {
     id: 4,
-    title: "Inspiraciencia (Red Social de Lectura)",
+    title: "Inspiraciencia (red social de lectura)",
     desc:
-      "Plataforma web donde los usuarios pueden interactuar, comentar publicaciones, dar 'me gusta' y publicar/descargar libros en formato PDF. Enfocado en la comunidad.",
+      "Plataforma web para compartir publicaciones y libros en PDF con funciones sociales y manejo de base de datos.",
     link: "https://github.com/Aplo19/Inspiraciencia",
-    tags: ["Web", "Comunidad", "PDF Management", "Database"],
+    tags: ["Web", "Comunidad", "PDF", "Base de datos"],
   },
-{
-  id: 5,
-  title: "Banco Platform (BFF + Microservicios)",
-  desc:
-    "Arquitectura backend con intercambio de datos entre microservicios de clientes y productos a través de un BFF, seguridad OAuth2/JWT, trazabilidad con X-Trace-Id y despliegue con Docker.",
-  link: "https://github.com/Aplo19/banking-bff-microservices-oauth2.git",
-  tags: ["Microservices", "BFF", "OAuth2/JWT", "Spring Boot", "Docker"],
-},
+  {
+    id: 5,
+    title: "Banco Platform (BFF + Microservicios)",
+    desc:
+      "Arquitectura backend con BFF, comunicación entre microservicios, OAuth2/JWT, trazabilidad con X-Trace-Id y despliegue con Docker.",
+    link: "https://github.com/Aplo19/banking-bff-microservices-oauth2.git",
+    tags: ["Microservicios", "BFF", "OAuth2/JWT", "Spring Boot", "Docker"],
+  },
 ];
 
 export const skills = [
@@ -75,13 +75,8 @@ export const skills = [
     ],
   },
   {
-    category: "Base de Datos",
-    items: [
-      "MySQL",
-      "SQL",
-      "Diseño y modelado relacional",
-      "JPA / Hibernate",
-    ],
+    category: "Base de datos",
+    items: ["MySQL", "SQL", "Diseño y modelado relacional", "JPA / Hibernate"],
   },
   {
     category: "DevOps / Herramientas",
@@ -96,7 +91,7 @@ export const skills = [
     ],
   },
   {
-    category: "Desarrollo Web",
+    category: "Desarrollo web",
     items: [
       "APIs REST",
       "Arquitectura MVC",
@@ -111,28 +106,26 @@ export const skills = [
   },
 ];
 
-
-
 export const certifications = [
-    {
-        id: 101,
-        title: "Introducción a la Ciberseguridad",
-        issuer: "Universidad Tecnológica del Perú — Cisco Networking Academy.",
-        date: "30 Aug 2025",
-        pdf: "/certificado-ciberseguridad.pdf"
-    },
-    {
-        id: 102,
-        title: "Certificado Cisco",
-        issuer: "Curso Cisco Networking Academy.",
-        date: "Aug 20, 2025",
-        pdf: "/certificado-cisco.pdf"
-    },
-      {
+  {
+    id: 101,
+    title: "Introducción a la ciberseguridad",
+    issuer: "Universidad Tecnológica del Perú - Cisco Networking Academy",
+    date: "30 Aug 2025",
+    pdf: "/certificado-ciberseguridad.pdf",
+  },
+  {
+    id: 102,
+    title: "Certificado Cisco",
+    issuer: "Cisco Networking Academy",
+    date: "20 Aug 2025",
+    pdf: "/certificado-cisco.pdf",
+  },
+  {
     id: 103,
-    title: "Gestión de Amenazas Cibernéticas",
+    title: "Gestión de amenazas cibernéticas",
     issuer: "Cisco Networking Academy",
     date: "Noviembre 2025",
     pdf: "/gestion-amenazas-ciberneticas.pdf",
-      }
-]
+  },
+];

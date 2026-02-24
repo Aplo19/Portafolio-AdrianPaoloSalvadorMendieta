@@ -1,6 +1,4 @@
-
-
-import { useEffect } from "react";
+﻿import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -10,242 +8,354 @@ import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import ProjectCard from "./components/ProjectCard";
 import CertCard from "./components/CertCard";
+import FaultyTerminal from "./components/FaultyTerminal";
+import SplitText from "./components/SplitText";
+import SpotlightCard from "./components/SpotlightCard";
+import Carousel from "./components/Carousel";
 
-const Section = ({ id, title, children, aos, bgColor = "bg-gray-900", titleColor = "text-blue-400" }) => (
-  <section id={id} className={`py-20 px-6 max-w-6xl mx-auto ${bgColor}`} data-aos={aos}>
-    {title && (
-        <h2 className={`text-3xl font-bold ${titleColor} mb-8 ${id === 'skills' || id === 'projects' ? 'text-center' : ''}`}>
-            {title}
-        </h2>
-    )}
+const Section = ({ id, title, children, aos = "fade-up" }) => (
+  <section id={id} className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-20" data-aos={aos}>
+    {title ? (
+      <SplitText
+        text={title}
+        tag="h2"
+        className="section-title"
+        splitType="words, chars"
+        delay={18}
+        duration={0.95}
+        ease="power2.out"
+        textAlign="left"
+      />
+    ) : null}
     {children}
   </section>
 );
 
+const recognitions = [
+  {
+    title: "Talento revelación",
+    desc: "Reconocimiento oficial por desempeño sobresaliente, compromiso y trabajo colaborativo.",
+    file: "/TECHNOLOGY - Adrian Paolo Salvador Mendieta (1).pdf",
+  },
+  {
+    title: "Certificado de reconocimiento",
+    desc: "Reconocimiento por responsabilidad, constancia y aporte técnico en proyectos de desarrollo web.",
+    file: "/CERTIFICADO DE RECONOCIMIENTO.pdf",
+  },
+  {
+    title: "Carta de recomendación",
+    desc: "Documento empresarial que respalda mi capacidad técnica y profesional.",
+    file: "/carta_recomendacion_Adrian_Paolo_Salvador_Mendieta.pdf",
+  },
+];
+
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [carouselWidth, setCarouselWidth] = useState(320);
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+
   useEffect(() => {
-    AOS.init({ duration: 900, once: true, easing: "ease-out-cubic" });
+    AOS.init({ duration: 700, once: true, easing: "ease-out-cubic", offset: 40 });
   }, []);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 700);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const updateViewport = () => {
+      const mobile = window.innerWidth < 640;
+      setIsMobile(mobile);
+      setCarouselWidth(Math.max(280, Math.min(window.innerWidth - 20, 420)));
+    };
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="preloader-wrap" aria-label="Cargando contenido del portafolio">
+        <div className="preloader">
+          <div className="crack crack1" />
+          <div className="crack crack2" />
+          <div className="crack crack3" />
+          <div className="crack crack4" />
+          <div className="crack crack5" />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="bg-gray-900 text-white min-h-screen font-sans leading-relaxed">
-      <Header />
+    <div className="relative min-h-screen overflow-hidden">
+      <div className="theme-orb -left-20 top-16 h-64 w-64 bg-[var(--brand)]" />
+      <div className="theme-orb -right-20 top-[26rem] h-72 w-72 bg-cyan-400 dark:bg-teal-300" />
+
+      <Header
+        theme={theme}
+        onToggleTheme={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
+      />
 
       <main className="pt-20">
         <section
-          className="h-screen flex flex-col items-center justify-center text-center px-6"
-          data-aos="fade-up"
+          id="home"
+          className="hero-grid relative flex min-h-[92svh] flex-col items-center justify-center overflow-hidden px-4 pb-8 pt-10 text-center sm:min-h-screen sm:px-6 sm:pt-0"
         >
-          <h1 className="text-5xl sm:text-6xl font-extrabold mb-4">Adrian Paolo Salvador Mendieta</h1>
-          <p className="text-lg text-gray-300 max-w-2xl mb-6">
-  Estudiante de Ingeniería de Software en la{" "}
-  <span className="text-blue-400 font-semibold">UTP</span>.<br />
-  Desarrollador <strong>Full Stack</strong> enfocado en crear aplicaciones web modernas, seguras y escalables.
-</p>
-          <div className="flex gap-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 bg-blue-500 rounded-lg shadow hover:bg-blue-600 transition"
-            >
-              Ver Proyectos
-            </a>
-            <a
-              href="/cv-adrian-paolo.pdf"
-              download
-              className="px-6 py-3 border border-gray-600 rounded-lg hover:bg-gray-800 transition"
-            >
-              Descargar CV
-            </a>
-                        <a
-              href="/carta_recomendacion_Adrian_Paolo_Salvador_Mendieta.pdf"
-              download
-              className="px-6 py-3 border border-gray-600 rounded-lg hover:bg-gray-800 transition"
-            >
-              Descargar Carta de Recomendacion
-            </a>
+          <div className="absolute inset-0 z-0">
+            <div style={{ width: "100%", height: "100%", position: "relative" }}>
+              <FaultyTerminal
+                scale={1}
+                gridMul={[2, 1]}
+                digitSize={isMobile ? 1.2 : 1.4}
+                timeScale={isMobile ? 0.22 : 0.26}
+                scanlineIntensity={isMobile ? 0.28 : 0.35}
+                glitchAmount={1}
+                flickerAmount={1}
+                noiseAmp={1}
+                chromaticAberration={0}
+                dither={0}
+                curvature={0.2}
+                tint={theme === "dark" ? "#9FF5E8" : "#c8fff6"}
+                mouseReact
+                mouseStrength={isMobile ? 0.12 : 0.18}
+                pageLoadAnimation
+                brightness={theme === "dark" ? (isMobile ? 0.75 : 0.9) : isMobile ? 0.45 : 0.55}
+              />
+            </div>
           </div>
+          <div className="panel relative z-10 mx-auto w-full max-w-4xl rounded-2xl px-5 py-7 sm:p-12" data-aos="zoom-in">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] sm:mb-4 sm:text-sm">
+              Full Stack Developer
+            </p>
+            <SplitText
+              text="Adrian Paolo Salvador Mendieta"
+              tag="h1"
+              className="text-3xl font-black leading-tight tracking-tight sm:text-6xl"
+              splitType="words, chars"
+              delay={22}
+              duration={1}
+              ease="power3.out"
+            />
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:mt-5 sm:text-lg">
+              Estudiante de Ingeniería de Software en UTP. Construyo productos web modernos, seguros y escalables con foco en rendimiento y experiencia de usuario.
+            </p>
 
-          <p className="text-xs text-gray-500 mt-6 max-w-xl">
-Abierto a oportunidades laborales. CV y certificaciones disponibles para descarga.          </p>
+            <div className="mx-auto mt-6 grid w-full max-w-sm grid-cols-1 gap-3 sm:mt-7 sm:flex sm:max-w-none sm:flex-wrap sm:items-center sm:justify-center">
+              <a href="#projects" className="btn-main w-full sm:w-auto">
+                Ver proyectos
+              </a>
+              <a href="/cv-adrian-paolo.pdf" download className="btn-soft w-full sm:w-auto">
+                Descargar CV
+              </a>
+              <a href="/carta_recomendacion_Adrian_Paolo_Salvador_Mendieta.pdf" download className="btn-soft w-full sm:w-auto">
+                Carta de recomendación
+              </a>
+            </div>
+          </div>
         </section>
 
         <Section id="about" title="Sobre mí" aos="fade-right">
-          <p className="text-gray-300 mb-4">
-  Soy estudiante de Ingeniería de Software en la{" "}
-  <strong>Universidad Tecnológica del Perú (UTP)</strong>, con enfoque en
-  desarrollo web <strong>Full Stack</strong>. Desarrollo soluciones con{" "}
-  <strong>Java, Spring Boot, JavaScript, React, PHP y Laravel</strong>,
-  construyendo APIs y aplicaciones con <strong>autenticación, CRUD, validaciones</strong>{" "}
-  e integración con bases de datos <strong>MySQL</strong>.
-
-  Además, he desarrollado una arquitectura backend con{" "}
-  <strong>BFF + microservicios</strong>, implementando{" "}
-  <strong>OAuth2/JWT</strong>, intercambio de datos entre servicios,
-  trazabilidad con <strong>X-Trace-Id</strong>, documentación con{" "}
-  <strong>Swagger/OpenAPI</strong> y despliegue con <strong>Docker</strong>.
-  Me enfoco en resolver problemas de forma práctica y en entregar soluciones
-  funcionales, seguras y mantenibles.
-</p>
-          <div className="grid gap-6 mt-6">
-
-           <div className="bg-gray-800 p-6 rounded-lg shadow">
-  <h3 className="font-semibold mb-2">Experiencia laboral</h3>
-  <p className="text-gray-400">
-    <strong>Desarrollador Web / Líder de Área – NEONHOUSELED SAC</strong><br />
-    <span className="text-gray-500">Octubre 2025 – Enero 2026</span><br /><br />
-
-Realicé funciones como desarrollador web en NEON HOUSE LED SAC, desempeñándome
-también como líder de área. Fui responsable del análisis y planificación de la
-implementación de mockups, transformándolos en interfaces web funcionales y
-responsivas utilizando <strong>HTML, JSX/TSX, Tailwind CSS, Laravel (Blade) y Next.js</strong>.
-Desarrollé la lógica con{" "}
-<strong>JavaScript y TypeScript</strong>, aplicando estilos y animaciones acordes a
-la identidad visual de la empresa mediante CSS, Tailwind y Framer Motion.
-
-    <br /><br />
-    Asimismo, participé en el desarrollo backend implementando endpoints y APIs
-    con <strong>Laravel y PHP</strong>, gestionando bases de datos <strong>MySQL</strong>{" "}y optimizando consultas SQL. Realicé pruebas funcionales, corrección de errores
-    y mejoras de rendimiento, incluyendo optimización de recursos y buenas prácticas
-    en React como <em>useMemo</em> y <em>useCallback</em>. También implementé mejoras
-    básicas de SEO, colaboré en el despliegue de aplicaciones web y en la
-    configuración de entornos de producción, además de mantener actualizados los
-    contenidos de las plataformas digitales.
-
-    <br /><br />
-    Como líder del área, coordiné al equipo técnico, asigné tareas, realicé
-    seguimiento del progreso, elaboré informes y participé activamente en reuniones
-    técnicas, promoviendo la organización, la comunicación efectiva y el trabajo
-    colaborativo.
-
-    <br /><br />
-    <strong>Asistente Técnico – J&M Fotocopiadoras</strong><br />
-    <span className="text-gray-500">2022 – 2025</span><br />
-    Mantenimiento del sitio web corporativo y soporte técnico básico.
-  </p>
-</div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow">
-              <h3 className="font-semibold mb-2">Formación</h3>
-              <p className="text-gray-400">
-                 <strong>Ingeniería de Software</strong> — Universidad Tecnológica del Perú (UTP).<br />
-                  9.º ciclo. Formación en desarrollo web, bases de datos,
-                  redes y ciberseguridad con certificaciones Cisco.
+          <div className="grid gap-6 lg:grid-cols-3">
+            <article className="panel p-6 lg:col-span-2">
+              <p className="leading-relaxed text-muted">
+                Soy estudiante de Ingeniería de Software en la Universidad Tecnológica del Perú. Desarrollo soluciones Full Stack con Java, Spring Boot, JavaScript, React, PHP y Laravel. Trabajo en diseño de APIs, autenticación segura, validaciones y arquitectura escalable.
               </p>
-            </div>
+              <p className="mt-4 leading-relaxed text-muted">
+                También he implementado arquitectura BFF con microservicios, OAuth2/JWT, trazabilidad con X-Trace-Id, documentación con Swagger/OpenAPI y despliegue con Docker. Mi enfoque es construir software funcional, seguro y mantenible.
+              </p>
+            </article>
+
+            <article className="panel p-6">
+              <h3 className="text-lg font-bold">Formación</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Ingeniería de Software - Universidad Tecnológica del Perú (UTP). Noveno ciclo, con enfoque en desarrollo web, bases de datos, redes y ciberseguridad.
+              </p>
+            </article>
           </div>
-        </Section>
-<Section id="skills" title="Habilidades" aos="zoom-in" bgColor="bg-gray-800">
-  <div className="max-w-5xl mx-auto space-y-8">
 
-    {skills.map((group, index) => (
-      <div key={index}>
-        <h3 className="mb-4 text-center font-bold text-xl text-white">
-          {group.category}
-        </h3>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          {group.items.map((skill, i) => (
-            <div
-              key={i}
-              className="bg-gray-900 p-4 rounded-lg border border-gray-700
-                         hover:border-indigo-500 hover:scale-105 transition"
-            >
-              <div className="font-semibold text-gray-200">
-                {skill}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    ))}
-
-  </div>
-</Section>
-        <Section id="projects" title="Proyectos destacados" aos="fade-up">
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((p) => (
-              <ProjectCard key={p.id} project={p} />
-            ))}
-          </div>
-        </Section>
-
-        <Section id="certs" title="Certificaciones" aos="fade-right" bgColor="bg-gray-900" titleColor="text-blue-400">
-            <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                {certifications.map((cert) => (
-                    <CertCard key={cert.id} cert={cert} />
-                ))}
-            </div>
-            <p className="text-xs text-gray-500 mt-4 text-center max-w-4xl mx-auto">
-                Ver detalles completos en mi CV.
+          <article className="panel mt-6 p-6">
+            <h3 className="text-lg font-bold">Experiencia laboral</h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              <strong>Desarrollador Web Full Stack / Líder de Área - NEON HOUSE LED SAC, Lima</strong>
+              <br />
+              <span className="text-xs uppercase tracking-wide">Oct 2025 - Ene 2026</span>
+              <br />
+            
             </p>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted">
+              <li>Desarrollo de interfaces responsivas con HTML, JSX/TSX, Tailwind CSS, Blade y Next.js.</li>
+              <li>Implementación de lógica frontend con JavaScript/TypeScript y animaciones con Framer Motion.</li>
+              <li>Desarrollo de endpoints y APIs con Laravel/PHP, integración con MySQL y optimización SQL.</li>
+              <li>Mejora de rendimiento en React (`useMemo`, `useCallback`), SEO técnico y despliegues.</li>
+              <li>Coordinación de equipo, seguimiento técnico y documentación.</li>
+            </ul>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              <strong>Asistente Técnico - J&M Fotocopiadoras</strong> (2022 - 2025). Mantenimiento del sitio corporativo y soporte técnico operativo.
+            </p>
+          </article>
         </Section>
 
-        <Section id="recognitions" title="Reconocimientos" aos="fade-up" bgColor="bg-gray-800">
-          
-          <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
-             <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow">
-              <h3 className="text-xl font-semibold text-blue-300">Talento revelación</h3>
-              <p className="text-gray-400 mt-3 min-h-[72px]">
-               Documento oficial emitido por la empresa que reconoce mi desempeño sobresaliente, compromiso constante y capacidad de trabajo en equipo.
-              </p>
-              <a
-                href="/TECHNOLOGY - Adrian Paolo Salvador Mendieta (1).pdf"
-               target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-block px-3 py-1.5 text-sm bg-blue-600 rounded-md hover:bg-blue-700 transition"
-              >
-                Ver PDF
-              </a>
+        <Section id="skills" title="Habilidades" aos="zoom-in">
+          {isMobile ? (
+            <Carousel
+              items={skills}
+              baseWidth={carouselWidth}
+              loop
+              renderItem={(group) => (
+                <SpotlightCard
+                  className="min-h-[20rem] p-7 sm:min-h-0 sm:p-6"
+                  spotlightColor="color-mix(in srgb, var(--brand) 22%, transparent)"
+                >
+                  <h3 className="mb-4 text-2xl font-bold sm:text-xl">{group.category}</h3>
+                  <div className="grid grid-cols-1 gap-2">
+                    {group.items.map((skill) => (
+                      <div
+                        key={skill}
+                        className="rounded-lg border border-slate-400/20 bg-[var(--surface-soft)] px-3 py-2 text-sm text-muted"
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </SpotlightCard>
+              )}
+            />
+          ) : (
+            <div className="space-y-7">
+              {skills.map((group) => (
+                <article key={group.category} className="panel p-6">
+                  <h3 className="mb-4 text-xl font-bold">{group.category}</h3>
+                  <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+                    {group.items.map((skill) => (
+                      <div
+                        key={skill}
+                        className="rounded-lg border border-slate-400/20 bg-[var(--surface-soft)] px-3 py-2 text-sm text-muted"
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
             </div>
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow">
-              <h3 className="text-xl font-semibold text-blue-300">Certificado de reconocimiento</h3>
-              <p className="text-gray-400 mt-3 min-h-[72px]">
-                Reconocimiento por desempeño destacado, responsabilidad y aporte en proyectos de
-                desarrollo web.
-              </p>
+          )}
+        </Section>
+
+        <Section id="projects" title="Proyectos destacados">
+          {isMobile ? (
+            <Carousel
+              items={projects}
+              baseWidth={carouselWidth}
+              loop
+              renderItem={(project) => <ProjectCard project={project} />}
+            />
+          ) : (
+            <div className="grid gap-7 md:grid-cols-2">
+              {projects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          )}
+        </Section>
+
+        <Section id="certs" title="Certificaciones" aos="fade-left">
+          {isMobile ? (
+            <Carousel
+              items={certifications}
+              baseWidth={carouselWidth}
+              loop
+              renderItem={(cert) => <CertCard cert={cert} />}
+            />
+          ) : (
+            <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+              {certifications.map((cert) => (
+                <CertCard key={cert.id} cert={cert} />
+              ))}
+            </div>
+          )}
+        </Section>
+
+        <Section id="recognitions" title="Reconocimientos" aos="fade-up">
+          {isMobile ? (
+            <Carousel
+              items={recognitions}
+              baseWidth={carouselWidth}
+              loop
+              renderItem={(item) => (
+                <SpotlightCard
+                  className="min-h-[16rem] p-7 sm:min-h-0 sm:p-6"
+                  spotlightColor="color-mix(in srgb, var(--brand) 24%, transparent)"
+                >
+                  <h3 className="text-2xl font-bold sm:text-xl">{item.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted sm:text-sm">{item.desc}</p>
+                  <a href={item.file} target="_blank" rel="noreferrer" className="btn-main mt-5 w-full sm:w-auto">
+                    Ver PDF
+                  </a>
+                </SpotlightCard>
+              )}
+            />
+          ) : (
+            <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+              {recognitions.map((item) => (
+                <SpotlightCard
+                  key={item.title}
+                  className="min-h-[16rem] p-7 sm:min-h-0 sm:p-6"
+                  spotlightColor="color-mix(in srgb, var(--brand) 24%, transparent)"
+                >
+                  <h3 className="text-2xl font-bold sm:text-xl">{item.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted sm:text-sm">{item.desc}</p>
+                  <a href={item.file} target="_blank" rel="noreferrer" className="btn-main mt-5 w-full sm:w-auto">
+                    Ver PDF
+                  </a>
+                </SpotlightCard>
+              ))}
+            </div>
+          )}
+        </Section>
+
+        <Section id="contact" title="Contacto" aos="zoom-in">
+          <article className="panel p-8 text-center">
+            <p className="mx-auto max-w-2xl text-muted">
+              Estoy disponible para oportunidades laborales.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <a href="mailto:adriansalvadormendieta@gmail.com" className="btn-main">
+                Enviar email
+              </a>
+              <a href="https://github.com/Aplo19" target="_blank" rel="noreferrer" className="btn-soft">
+                GitHub
+              </a>
               <a
-                href="/CERTIFICADO DE RECONOCIMIENTO.pdf"
+                href="https://www.linkedin.com/in/adrian-paolo-salvador-mendieta-0b7843281"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-4 inline-block px-3 py-1.5 text-sm bg-blue-600 rounded-md hover:bg-blue-700 transition"
+                className="btn-soft"
               >
-                Ver PDF
+                LinkedIn
               </a>
             </div>
 
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow">
-              <h3 className="text-xl font-semibold text-blue-300">Carta de recomendacion</h3>
-              <p className="text-gray-400 mt-3 min-h-[72px]">
-                Documento emitido por la empresa que respalda mi desempeño, compromiso y trabajo
-                en equipo.
-              </p>
-              <a
-                href="/carta_recomendacion_Adrian_Paolo_Salvador_Mendieta.pdf"
-               target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-block px-3 py-1.5 text-sm bg-blue-600 rounded-md hover:bg-blue-700 transition"
-              >
-                Ver PDF
-              </a>
-            </div>
-          </div>
-          
+            <p className="mt-6 text-sm text-muted">Tel: +51 954 977 594 · Lima, Perú</p>
+          </article>
         </Section>
 
-
-        <Section id="contact" title="Contacto" aos="zoom-in" bgColor="bg-gray-800">
-          <p className="text-gray-300 mb-6 text-center">¿Te interesa mi perfil? Me encuentro disponible para oportunidades laborales.</p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="mailto:adriansalvadormendieta@gmail.com" className="px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition">📧 Enviar email</a>
-            <a href="https://github.com/Aplo19" target="_blank" rel="noreferrer" className="px-6 py-3 border border-gray-700 rounded-lg hover:bg-gray-700 transition">💻 GitHub</a>
-            <a href="https://www.linkedin.com/in/adrian-paolo-salvador-mendieta-0b7843281" target="_blank" rel="noreferrer" className="px-6 py-3 border border-gray-700 rounded-lg hover:bg-gray-700 transition">🔗 LinkedIn</a>
-          </div>
-
-          <p className="text-gray-500 mt-6 text-sm text-center">Tel: +51 954 977 594 • Lima, Perú</p>
-        </Section>
-
-      <Footer />
+        <Footer />
       </main>
     </div>
   );
 }
+
