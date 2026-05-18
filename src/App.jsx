@@ -103,7 +103,7 @@ export default function App() {
               bases de datos, rendimiento y experiencia de usuario.
             </p>
 
-            <div className="hero-actions">
+            <div className="highlight-links">
               <a href="/cv-adrian-paolo.pdf" download className="highlight-link">
                 <span>Acceso directo</span>
                 <strong>Descargar CV</strong>
