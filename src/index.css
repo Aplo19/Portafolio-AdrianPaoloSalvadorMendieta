@@ -684,6 +684,7 @@
     white-space: nowrap;
   }
 
+
   .main-nav a,
   .header-cta,
   .footer-inner span,
@@ -782,7 +783,8 @@
   }
 
   .site-header {
-    position: static;
+    position: sticky;
+    top: 8px;
   }
 
   .button {
