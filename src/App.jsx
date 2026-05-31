@@ -288,7 +288,7 @@ export default function App() {
                 <a href="mailto:adriansalvadormendieta@gmail.com" className="button button-dark">
                   Escribirme
                 </a>
-                <a href="/cv-adrian-paolo.pdf" download className="button button-light">
+                <a href="/cv-adrian-paolo2.pdf" download className="button button-light">
                   Descargar CV
                 </a>
               </div>
