@@ -24,20 +24,6 @@ const recognitions = [
 
 const experiences = [
   {
-    company: "Saco Oliveros, Lima",
-    role: "Analista Programador",
-    period: "Mar 2026 - Actualidad",
-    details: [
-      "Desarrollo y mantenimiento de consultas SQL avanzadas en PostgreSQL para módulos académicos, matrícula, caja y gestión administrativa.",
-      "Debugging y análisis de código backend para identificar funciones, procedimientos almacenados y lógica de negocio conectada a base de datos.",
-      "Implementación y optimización de scripts SQL para automatización de procesos, validaciones y corrección de incidencias en producción.",
-      "Participación en mantenimiento y mejora de funcionalidades de sistemas internos utilizando Java y bases de datos relacionales.",
-      "Optimización de consultas y análisis de rendimiento para mejorar tiempos de respuesta y estabilidad del sistema.",
-      "Integración y validación de información entre módulos administrativos, académicos y financieros.",
-      "Capacitación a usuarios y áreas internas sobre funcionalidades y uso de módulos del sistema.",
-    ],
-  },
-  {
     company: "NEON HOUSE LED SAC, Lima",
     role: "Desarrollador Web Full Stack / Líder de Área",
     period: "Oct 2025 - Ene 2026",
