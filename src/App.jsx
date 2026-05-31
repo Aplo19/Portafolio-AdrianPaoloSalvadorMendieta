@@ -90,7 +90,7 @@ export default function App() {
             </p>
 
             <div className="highlight-links">
-              <a href="/cv-adrian-paolo.pdf" download className="highlight-link">
+              <a href="/cv-adrian-paolo2.pdf" download className="highlight-link">
                 <span>Acceso directo</span>
                 <strong>Descargar CV</strong>
               </a>
