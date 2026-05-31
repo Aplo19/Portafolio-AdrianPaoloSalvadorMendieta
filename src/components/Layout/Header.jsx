@@ -23,7 +23,7 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <a href="/cv-adrian-paolo.pdf" download className="header-cta">
+          <a href="/cv-adrian-paolo2.pdf" download className="header-cta">
             Descargar CV
           </a>
           <a
